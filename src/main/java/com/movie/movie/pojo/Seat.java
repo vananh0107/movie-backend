@@ -16,7 +16,7 @@ public class Seat {
     private int id;
     private String name;
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE.CASCADE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "room_id",nullable = false)
     private Room room;
 }

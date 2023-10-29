@@ -18,6 +18,6 @@ public class Bill {
     private LocalDateTime createdTime;
     @ManyToOne
     @JoinColumn(nullable = false,name="user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE.CASCADE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 }

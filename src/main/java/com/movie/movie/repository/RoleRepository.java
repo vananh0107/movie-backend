@@ -1,4 +1,4 @@
-package com.movie.movie.security.UserRepository;
+package com.movie.movie.repository;
 
 import com.movie.movie.pojo.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

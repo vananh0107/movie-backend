@@ -1,4 +1,4 @@
-package com.movie.movie.security.Configue;
+package com.movie.movie.security.configue;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

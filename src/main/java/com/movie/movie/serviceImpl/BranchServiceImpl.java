@@ -2,6 +2,7 @@ package com.movie.movie.serviceImpl;
 
 import com.movie.movie.dto.BranchDTO;
 import com.movie.movie.repository.BranchRepository;
+import com.movie.movie.service.BranchService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
-public class BranchServiceImpl {
+public class BranchServiceImpl implements BranchService {
     @Autowired
     private BranchRepository branchRepository;
 

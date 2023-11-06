@@ -1,11 +1,16 @@
 package com.movie.movie.api;
 
 import com.movie.movie.dto.BookingRequestsDTO;
+import com.movie.movie.dto.RoomDTO;
+import com.movie.movie.pojo.Bill;
 import com.movie.movie.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController

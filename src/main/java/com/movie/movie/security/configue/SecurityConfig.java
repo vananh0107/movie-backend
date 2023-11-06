@@ -46,7 +46,7 @@ public class  SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/login","/api/movies/showing","/api/movies/showing/search","/register","/api/movies/details").permitAll()
-                        .requestMatchers("/api/**").hasRole("CLIENT")
+//                        .requestMatchers("/api/**").hasRole("CLIENT")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)

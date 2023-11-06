@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class BillDTO {
     private int id;
-    private LocalDate createdTime;
+    private String createdTime;
     private List<TicketDTO> listTickets;
     private User user;
 }

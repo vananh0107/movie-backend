@@ -16,6 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
+
 @Service
 public class BillServiceImpl implements BillService {
     @Autowired
@@ -41,9 +44,11 @@ public class BillServiceImpl implements BillService {
         //Lưu Bill gồm thông tin người dùng xuống trước
         Bill billToCreate = new Bill();
         billToCreate.setUser(user);
-        billToCreate.setCreatedTime(LocalDateTime.now());
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = currentDateTime.format(formatter);
+        billToCreate.setCreatedTime(formattedDateTime);
         Bill createdBill = billRepository.save(billToCreate);
-
         //Với mỗi ghế ngồi check xem đã có ai đặt chưa, nếu rồi thì throw, roll back luôn còn ko
         //thì đóng gói các thông tin ghế và lịch vào vé và lưu xuống db
         bookingRequestDTO.getListSeatIds().forEach(seatId->{
@@ -56,9 +61,8 @@ public class BillServiceImpl implements BillService {
             ticket.setSchedule(schedule);
             ticket.setSeat(seatRepository.getById(seatId));
             ticket.setBill(createdBill);
-            ticket.setQrImageURL("https://www.google.com/url?sa=i&url=https%3A%2F%2Fsupport.thinkific.com%2Fhc%2Fen-us%2Farticles%2F360030357274-Generate-a-QR-Code-for-Your-Sign-In-URL&psig=AOvVaw3BTtxcPvTI1lpEXzkPGpjf&ust=1698635141007000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKiIjpOjmoIDFQAAAAAdAAAAABAE");
+            ticket.setQrImageURL("https://qrcg-free-editor.qr-code-generator.com/main/assets/images/websiteQRCode_noFrame.png");
             ticketRepository.save(ticket);
         });
-
     }
 }
